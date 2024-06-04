@@ -1,19 +1,25 @@
+// Import the inquirer library to handle user input.
 import inquirer from "inquirer";
 
-(async () => {
-  const answer = await inquirer.prompt([{
-    type: "input",
-    name: "userAnswer",
-    message: "What is The Capital of France?"
-  }]);
+// Use the inquirer library to prompt the user with a question and wait for their answer.
+// The prompt method returns a promise, so we use await to handle the asynchronous operation.
+const answer = await inquirer.prompt([{
+  type: "input",
+  name: "userAnswer",
+  message: "What is The Capital of France?"
+}]);
 
-  function quiz(question: string, correctAnswer: string) {
-    if (answer.userAnswer.toLowerCase() !== correctAnswer.toLowerCase()) {
-      console.log("Wrong Answer. Try Again!");
-    } else {
-      console.log("Correct Answer");
-    }
+// Define a function named quiz that takes two arguments: question and correctAnswer, both of type string.
+function quiz(question: string, correctAnswer: string) {
+  // Compare the user's answer with the correct answer, ignoring case differences.
+  if (answer.userAnswer.toLowerCase() !== correctAnswer.toLowerCase()) {
+    // If the answer is incorrect, log "Wrong Answer. Try Again!" to the console.
+    console.log("Wrong Answer. Try Again!");
+  } else {
+    // If the answer is correct, log "Correct Answer" to the console.
+    console.log("Correct Answer");
   }
+}
 
-  quiz("What is The Capital of France?", "Paris");
-})()
+// Call the quiz function with the question "What is The Capital of France?" and the correct answer "Paris".
+quiz("What is The Capital of France?", "Paris");
